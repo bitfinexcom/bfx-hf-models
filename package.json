@@ -1,0 +1,53 @@
+{
+  "name": "bfx-hf-models",
+  "version": "1.0.0",
+  "description": "HF DB models",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "author": "Cris Mihalache <cris.m@bitfinex.com> (https://www.bitfinex.com)",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bitfinexcom/bfx-hf-models.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bitfinexcom/bfx-hf-models/issues"
+  },
+  "keywords": [
+    "honey framework",
+    "bitfinex",
+    "bitcoin",
+    "BTC"
+  ],
+  "dependencies": {
+    "bfx-hf-util": "^1.0.0",
+    "bluebird": "^3.5.1",
+    "copy": "^0.3.1",
+    "lodash": "^4.17.10",
+    "mongoose": "^5.2.16",
+    "nems": "^1.4.1",
+    "p-iteration": "^1.1.7",
+    "promise-throttle": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.6",
+    "create-index": "^2.3.0",
+    "dotenv": "^6.0.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-standard": "^7.0.0",
+    "eslint-loader": "^1.7.1",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "faucet": "^0.0.1",
+    "istanbul": "^0.4.5",
+    "mocha": "^5.2.0",
+    "tape": "^4.6.3",
+    "tape-watch": "^2.3.0",
+    "yargs": "6.6.0"
+  }
+}
