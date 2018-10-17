@@ -1,1 +1,12 @@
-node_modules/
+.idea
+dist/*
+node_modules
+npm-debug.log
+.vscode
+*.swo
+*.swp
+.DS_Store
+yarn-error.log
+coverage
+package-lock.json
+.env
