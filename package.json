@@ -27,7 +27,7 @@
     "copy": "^0.3.1",
     "lodash": "^4.17.10",
     "mongoose": "^5.2.16",
-    "nems": "^1.4.1",
+    "nems": "f3rno/nodejs-embedded-mongodb-standalone",
     "p-iteration": "^1.1.7",
     "promise-throttle": "^1.0.0"
   },
