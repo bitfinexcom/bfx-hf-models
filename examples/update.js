@@ -10,6 +10,7 @@ const { DB_FILENAME } = process.env
 const db = DB(DB_FILENAME)
 
 const {
+  update: updateAO,
   create: createAO,
   get: getAO,
   rm: rmAO
@@ -20,30 +21,31 @@ const aoID = {
   gid: 'test-gid',
 }
 
-const aoDoc = {
+debug('creating AO w/ active: false...')
+
+createAO({
   ...aoID,
   active: false,
-  state: { data: 42 },
-}
+  state: {}
+})
 
-debug('creating AO...')
-createAO(aoDoc)
-debug('fetching created AO...')
+debug('checking...')
+const newAO = getAO(aoID)
+debug('got active: %s', newAO.active)
 
-const ao = getAO(aoID)
+debug('setting active: true...')
 
-debug('read AO %j', ao)
-debug('attempting to overwrite w/ create...')
+updateAO(aoID, ao => ({
+  ...ao,
+  active: true,
+}))
 
-try {
-  createAO(aoDoc)
-  debug('overwrite succeeded, panic')
-  process.exit(1)
-} catch (_) {
-  debug('overwrite failed as expected')
-}
+debug('fetching...')
 
-debug('deleting AO...')
+const updatedAO = getAO(aoID)
+debug('got active: %s', updatedAO.active)
+
+debug('deleting...')
 rmAO(aoID)
 debug('confirming...')
 

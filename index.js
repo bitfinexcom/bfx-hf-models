@@ -1,3 +1,9 @@
 'use strict'
 
-module.exports = require('./lib')
+const db = require('./lib/db')
+const models = require('./lib/models')
+
+module.exports = {
+  initDB: db,
+  ...models,
+}
