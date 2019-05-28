@@ -6,6 +6,9 @@
   "directories": {
     "lib": "lib"
   },
+  "scripts": {
+    "test": "rm -f db/test.json && NODE_PATH=lib/ DB_FILENAME=./db/test.json mocha -b --recursive && rm -f db/test.json"
+  },
   "author": "Cris Mihalache <cris.m@bitfinex.com> (https://www.bitfinex.com)",
   "license": "Apache-2.0",
   "repository": {
