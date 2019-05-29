@@ -11,5 +11,6 @@ coverage
 package-lock.json
 .env
 _test.js
+_test_candle_data.json
 !./db.keep
 /db/*.json
