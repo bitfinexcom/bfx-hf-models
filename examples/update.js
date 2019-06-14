@@ -18,7 +18,7 @@ const {
 
 const aoID = {
   algoID: 'test-algo-id',
-  gid: 'test-gid',
+  gid: 'test-gid'
 }
 
 debug('creating AO w/ active: false...')
@@ -37,7 +37,7 @@ debug('setting active: true...')
 
 updateAO(aoID, ao => ({
   ...ao,
-  active: true,
+  active: true
 }))
 
 debug('fetching...')
@@ -49,7 +49,7 @@ debug('deleting...')
 rmAO(aoID)
 debug('confirming...')
 
-if (!!getAO(aoID)) {
+if (getAO(aoID)) {
   debug('AO not deleted, panic')
   process.exit(1)
 } else {

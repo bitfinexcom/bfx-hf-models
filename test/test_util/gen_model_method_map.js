@@ -10,10 +10,10 @@ const genModelFunc = genModelMethodForMeta({
   type: MODEL_TYPES.MAP,
   schema: {
     id: FIELD_TYPES.STRING,
-    str: FIELD_TYPES.STRING,
+    str: FIELD_TYPES.STRING
   },
 
-  key: ({ id } = {}) => `${id}`,
+  key: ({ id } = {}) => `${id}`
 })
 
 module.exports = genModelFunc

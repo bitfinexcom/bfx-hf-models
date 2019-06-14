@@ -13,7 +13,6 @@ describe('rm_all generator', () => {
   const getAll = getAllGenerator(genModelMethod)
 
   it('removes all DB items', () => {
-
     // save for later tests & sanity check
     const initialModels = getAll()
     assert(initialModels.length > 0)
