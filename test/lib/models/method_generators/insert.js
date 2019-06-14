@@ -13,7 +13,7 @@ describe('insert generator', () => {
     const str = `${nonce()}`
 
     insert({ str, mts: 15 })
-    
+
     const models = getAll()
 
     assert(!!models.find(({ str: mStr }) => mStr === str))

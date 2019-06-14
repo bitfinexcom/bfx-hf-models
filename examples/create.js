@@ -17,13 +17,13 @@ const {
 
 const aoID = {
   algoID: 'test-algo-id',
-  gid: 'test-gid',
+  gid: 'test-gid'
 }
 
 const aoDoc = {
   ...aoID,
   active: false,
-  state: { data: 42 },
+  state: { data: 42 }
 }
 
 debug('creating AO...')
@@ -47,7 +47,7 @@ debug('deleting AO...')
 rmAO(aoID)
 debug('confirming...')
 
-if (!!getAO(aoID)) {
+if (getAO(aoID)) {
   debug('AO not deleted, panic')
   process.exit(1)
 } else {

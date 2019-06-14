@@ -5,5 +5,5 @@ const models = require('./lib/models')
 
 module.exports = {
   initDB: db,
-  ...models,
+  ...models
 }

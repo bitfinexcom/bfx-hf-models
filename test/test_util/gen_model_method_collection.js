@@ -11,16 +11,15 @@ const genModelFunc = genModelMethodForMeta({
   type: MODEL_TYPES.COLLECTION,
   schema: {
     mts: FIELD_TYPES.NUMBER,
-    str: FIELD_TYPES.STRING,
+    str: FIELD_TYPES.STRING
   },
 
   sort: {
     dir: SORT_TYPES.DESC,
-    key: 'mts',
+    key: 'mts'
   },
 
-  
-  key: ({ str } = {}) => str,
+  key: ({ str } = {}) => str
 })
 
 module.exports = genModelFunc

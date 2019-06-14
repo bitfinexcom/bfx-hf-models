@@ -23,14 +23,14 @@ describe('find generator', () => {
     assert.strictEqual(mtsModels.length, 2)
     assert(!!mtsModels.find(({ str }) => str === 'a'))
     assert(!!mtsModels.find(({ str }) => str === 'b'))
-    assert(!!!mtsModels.find(({ str }) => str === 'c')) // mts: 0
+    assert(!mtsModels.find(({ str }) => str === 'c')) // mts: 0
 
     const strModels = find(({ str }) => str === 'c')
 
     assert.strictEqual(strModels.length, 1)
     assert.deepStrictEqual(strModels[0], {
       str: 'c',
-      mts: 0,
+      mts: 0
     })
   })
 })
