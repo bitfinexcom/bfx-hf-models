@@ -1,12 +1,12 @@
 'use strict'
 
-process.env.DEBUG = '*'
+process.env.DEBUG = 'bfx:*'
 
 require('dotenv').config()
 require('bfx-hf-util/lib/catch_uncaught_errors')
 
-const debug = require('debug')('bfx:hf:models:examples:lowdb:collection:insert')
-const db = require('../lowdb_db')
+const debug = require('debug')('bfx:hf:models:examples:lowdb:collection:insert_rm_all')
+const db = require('../../lowdb_db')
 const { Candle } = db
 
 try {
@@ -32,6 +32,11 @@ try {
     })
 
     debug('read candle from DB: %j', c)
+
+    const cleanupCount = await Candle.rmAll()
+    debug('cleaned up %d candles', cleanupCount)
+
+    db.close()
   })()
 } catch (e) {
   debug('error: %s', e.stack)
