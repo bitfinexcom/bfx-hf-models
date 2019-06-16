@@ -1,12 +1,12 @@
 'use strict'
 
-process.env.DEBUG = 'bfx:*,knex:query'
+process.env.DEBUG = 'bfx:*'
 
 require('dotenv').config()
 require('bfx-hf-util/lib/catch_uncaught_errors')
 
-const debug = require('debug')('bfx:hf:models:examples:pg:collection:get_in_range')
-const db = require('../../pg_db')
+const debug = require('debug')('bfx:hf:models:examples:lowdb:collection:update_find')
+const db = require('../../lowdb_db')
 const { Candle } = db
 
 try {
@@ -24,7 +24,7 @@ try {
       exchange: 'bitfinex',
       vol: 42,
 
-      mts: 0,
+      mts: Date.now(),
 
       exchangeData: {
         type: 'hist',
@@ -53,13 +53,11 @@ try {
 
     debug('inserted second candle')
 
-    const candlesInRange = await Candle.getInRange([['open', '>=', 200]], {
-      key: 'mts',
-      start: Date.now() - 1000,
-      end: Date.now() + 1000
-    })
+    const updatedRows = await Candle.update([['open', '>=', 200]], { open: 300 })
+    debug('updated %d rows', updatedRows)
 
-    debug('read candles in range: %j', candlesInRange)
+    const updatedCandles = await Candle.find([['open', '=', 300]])
+    debug('read updated candles: %j', updatedCandles)
 
     const cleanupCount = await Candle.rmAll()
     debug('cleaned up %d candles', cleanupCount)

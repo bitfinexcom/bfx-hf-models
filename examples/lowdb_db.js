@@ -8,5 +8,8 @@ const { LOWDB_FILENAME } = process.env
 
 module.exports = new HFDB({
   schema: HFDBBitfinexSchema,
-  adapter: HFDBLowDBAdapter({ dbPath: LOWDB_FILENAME }),
+  adapter: HFDBLowDBAdapter({
+    dbPath: `${__dirname}/../${LOWDB_FILENAME}`,
+    schema: HFDBBitfinexSchema,
+  }),
 })

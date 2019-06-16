@@ -1,12 +1,12 @@
 'use strict'
 
-process.env.DEBUG = 'bfx:*,knex:query'
+process.env.DEBUG = 'bfx:*'
 
 require('dotenv').config()
 require('bfx-hf-util/lib/catch_uncaught_errors')
 
-const debug = require('debug')('bfx:hf:models:examples:pg:collection:get_in_range')
-const db = require('../../pg_db')
+const debug = require('debug')('bfx:hf:models:examples:lowdb:collection:get_in_range')
+const db = require('../../lowdb_db')
 const { Candle } = db
 
 try {
