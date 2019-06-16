@@ -19,7 +19,7 @@ try {
       gid,
       algoID,
       state: {},
-      active: false,
+      active: false
     })
 
     debug('read ao from DB: %j', ao)

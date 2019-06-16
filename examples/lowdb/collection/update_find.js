@@ -27,7 +27,7 @@ try {
       mts: Date.now(),
 
       exchangeData: {
-        type: 'hist',
+        type: 'hist'
       }
     })
 
@@ -47,7 +47,7 @@ try {
       mts: Date.now(),
 
       exchangeData: {
-        type: 'hist',
+        type: 'hist'
       }
     })
 

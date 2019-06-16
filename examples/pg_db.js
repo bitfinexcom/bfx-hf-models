@@ -11,6 +11,5 @@ module.exports = new HFDB({
   adapter: HFDBSQLAdapter({
     connection: PSQL_CONNECTION,
     clientType: 'pg'
-  }),
+  })
 })
-

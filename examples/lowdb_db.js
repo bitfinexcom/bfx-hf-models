@@ -10,6 +10,6 @@ module.exports = new HFDB({
   schema: HFDBBitfinexSchema,
   adapter: HFDBLowDBAdapter({
     dbPath: `${__dirname}/../${LOWDB_FILENAME}`,
-    schema: HFDBBitfinexSchema,
-  }),
+    schema: HFDBBitfinexSchema
+  })
 })
