@@ -12,7 +12,12 @@
     "unit": "NODE_PATH=lib/ NODE_ENV=test istanbul cover _mocha -- -R spec -b --recursive",
     "test-without-coverage": "NODE_ENV=test mocha -R spec -b --recursive"
   },
-  "author": "Cris Mihalache <cris.m@bitfinex.com> (https://www.bitfinex.com)",
+  "author": "Bitfinex",
+  "contributors": [
+    "Cris Mihalache <cris.m@bitfinex.com> (https://www.bitfinex.com)",
+    "Paolo Ardoino <paolo@bitfinex.com> (https://www.bitfinex.com)",
+    "Jacob Plaster <jacob.plaster@bitfinex.com> (https://www.bitfinex.com)"
+  ],
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
