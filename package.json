@@ -7,7 +7,10 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "rm -f db/test.json && NODE_PATH=lib/ DB_FILENAME=./db/test.json mocha -b --recursive && rm -f db/test.json"
+    "lint": "standard",
+    "test": "rm -rf db/test.json && npm run lint && NODE_PATH=lib/ DB_FILENAME=./db/test.json npm run unit && rm -f db/test.json",
+    "unit": "NODE_PATH=lib/ NODE_ENV=test istanbul cover _mocha -- -R spec -b --recursive",
+    "test-without-coverage": "NODE_ENV=test mocha -R spec -b --recursive"
   },
   "author": "Cris Mihalache <cris.m@bitfinex.com> (https://www.bitfinex.com)",
   "license": "Apache-2.0",
