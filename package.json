@@ -1,7 +1,7 @@
 {
   "name": "bfx-hf-models",
-  "version": "2.1.0",
-  "description": "HF DB models (lowdb)",
+  "version": "2.1.1",
+  "description": "HF DB models",
   "main": "index.js",
   "directories": {
     "lib": "lib"
