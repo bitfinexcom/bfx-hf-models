@@ -5,7 +5,7 @@ process.env.DEBUG = 'bfx:*,knex:query'
 require('dotenv').config()
 require('bfx-hf-util/lib/catch_uncaught_errors')
 
-const debug = require('debug')('bfx:hf:models:examples:pg:collection:insert_rm_all')
+const debug = require('debug')('bfx:hf:models:examples:pg:collection:insert-rm-all')
 const db = require('../../pg_db')
 const { Candle } = db
 

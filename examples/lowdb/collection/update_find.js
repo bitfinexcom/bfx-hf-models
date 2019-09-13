@@ -5,7 +5,7 @@ process.env.DEBUG = 'bfx:*'
 require('dotenv').config()
 require('bfx-hf-util/lib/catch_uncaught_errors')
 
-const debug = require('debug')('bfx:hf:models:examples:lowdb:collection:update_find')
+const debug = require('debug')('bfx:hf:models:examples:lowdb:collection:update-find')
 const db = require('../../lowdb_db')
 const { Candle } = db
 
