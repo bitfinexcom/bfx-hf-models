@@ -1,0 +1,36 @@
+# 2.1.1
+- manifest: bump deps
+- meta: add github issue/pr templates
+- meta: standardize travis config
+- meta: add placeholder npm test
+- meta: add changelog
+- meta: update readme
+- meta: rm vestigial tests (architecture has changed)
+
+# 2.1.0
+- meta: minor version bump due to changes in 2.0.1
+- feature: Market model
+- feature: Strategy model
+- Credential feature: add meta field
+
+# 2.0.1
+- NOTE: minor version should have been bumped here
+- refactor: switch to external database adapters (major rewrite)
+- feature: Credential model
+- Candle refactor: rename vol to volume
+
+# 2.0.0
+- refactor: switch to lowdb (major rewrite)
+
+# 1.0.2
+- fix: filter known timestamps by symbol in gen_sync_range
+
+# 1.0.1
+- refactor: use lean() on MongoDB calls in candle/trade range queries
+- manifest: use f3rno fork of nems
+- Trade fix: index by mts
+- Candle fix: decrease fetch limit to 1k
+- meta: add license
+
+# 1.0.0
+- initial version
