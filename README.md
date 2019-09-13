@@ -1,3 +1,98 @@
-## HF DB Models & Utilities (MongoDB)
+## Honey Framework Database
 
 [![Build Status](https://travis-ci.org/bitfinexcom/bfx-hf-models.svg?branch=master)](https://travis-ci.org/bitfinexcom/bfx-hf-models)
+
+This repo implements a backend-agnostic database system for the Bitfinex Honey Framework. It is used by all HF repos for data storage, i.e:
+
+* `bfx-hf-data-server`
+* `bfx-hf-algo-server`
+* `bfx-hf-server`
+
+Both the DB backend and exchange-specific schema methods can be configured upon initialization. There are currently two official exchange adapters:
+
+* `bfx-hf-ext-plugin-bitfinex` - implements Bitfinex-specific model methods
+* `bfx-hf-ext-plugin-dummy` - provides the base set of DB methods
+
+Besides these, two DB backends are available:
+
+* `bfx-hf-models-adapter-lowdb`
+* `bfx-hf-models-adapter-sql` - uses knex internally, allowing flexibility in DB selection
+
+### Example usage of built-in models & methods
+```js
+const HFDB = require('bfx-hf-models')
+const HFDBLowDBAdapter = require('bfx-hf-models-adapter-lowdb')
+const { schema: DummySchema } = require('bfx-hf-ext-plugin-dummy')
+
+const db = new HFDB({
+  schema: DummySchema,
+  adapter: HFDBLowDBAdapter({
+    dbPath: './db.json',
+  })
+})
+
+// All default models are available, but will lack exchange specific methods (i.e Candle.sync_range())
+const {
+  AlgoOrder, Backtest, Candle, Credential, Market, Strategy, Trade
+} = db
+
+const allCandles = await Candle.getAll()
+const allTrades = await Trade.getAll()
+const activeAlgoOrders = await AlgoOrder.find(['active', '=', true])
+const allCredentialsByCID = await Credential.getAll()
+const allCredentials = Object.values(allCredentialsByCID)
+const credential = await Credential.create({
+  cid: Date.now(),
+  key: 'some_public_key',
+  secret: 'some_secret_key',
+  meta: 'credential information'
+})
+
+//  etc...
+```
+
+### Example usage of bitfinex model methods
+As above, but with the bitfinex plugin the `Candle` and `Trade` models will gain a `syncRange()` method which populates the local DB with data from the exchange API.
+
+```js
+const HFDB = require('bfx-hf-models')
+const HFDBLowDBAdapter = require('bfx-hf-models-adapter-lowdb')
+const { schema: BitfinexSchema } = require('bfx-hf-ext-plugin-bitfinex')
+
+const db = new HFDB({
+  schema: BitfinexSchema,
+  adapter: HFDBLowDBAdapter({
+    dbPath: './db.json',
+  })
+})
+
+const SYMBOL = 'tBTCUSD'
+const TIME_FRAME = '1m'
+const END_MTS = Date.now()
+const START_MTS = END_MTS - (60 * 60 * 1000)
+const { Candle } = db
+
+// sync range
+await Candle.syncRange({
+  exchange: 'bitfinex',
+  type: 'trade',
+  symbol: SYMBOL,
+  tf: TIME_FRAME,
+}, {
+  start: START_MTS,
+  end: END_MTS,
+})
+
+// candles are now in DB, and can be queried
+const bitfinexCandles = await Candle.getInRange([
+  ['exchange', '=', 'bitfinex'],
+  ['symbol', '=', SYMBOL],
+  ['tf', '=', TIME_FRAME]
+], {
+  key: 'mts',
+  start: START_MTS,
+  end: END_MTS
+})
+
+// etc...
+```
