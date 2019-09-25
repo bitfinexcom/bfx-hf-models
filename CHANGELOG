@@ -1,3 +1,6 @@
+# 2.1.2
+- fix: return new POJO default models for each db instance
+
 # 2.1.1
 - manifest: bump deps
 - meta: add github issue/pr templates
