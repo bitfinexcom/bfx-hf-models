@@ -1,4 +1,4 @@
-## Honey Framework Database
+## Bitfinex Honey Framework Database System for Node.JS
 
 [![Build Status](https://travis-ci.org/bitfinexcom/bfx-hf-models.svg?branch=master)](https://travis-ci.org/bitfinexcom/bfx-hf-models)
 
@@ -18,7 +18,51 @@ Besides these, two DB backends are available:
 * `bfx-hf-models-adapter-lowdb`
 * `bfx-hf-models-adapter-sql` - uses knex internally, allowing flexibility in DB selection
 
-### Example usage of built-in models & methods
+### Features
+
+* DB-agnostic; currently two official backends are supported: `lowdb` and `knex` for SQL databases.
+* Exchange-agnostic; exchange-specific sync logic is provided via a plugin system
+
+#### Available Models
+* AlgoOrder
+* Backtest
+* Candle
+* Credential
+* Market
+* Strategy
+* Trade
+
+### Installation
+
+```bash
+npm i --save bfx-hf-models
+```
+
+### Quickstart
+
+```js
+const HFDB = require('bfx-hf-models')
+const HFDBLowDBAdapter = require('bfx-hf-models-adapter-lowdb')
+const { schema: DummySchema } = require('bfx-hf-ext-plugin-dummy')
+
+const db = new HFDB({
+  schema: DummySchema,
+  adapter: HFDBLowDBAdapter({
+    dbPath: './db.json',
+  })
+})
+
+// db is now ready to be used; see examples below
+```
+
+### Docs
+
+Refer to `docs/models.md` for an overview of the available models and their schema, and `docs/methods.md` for a list of methods available for both map & collection models.
+
+Executable examples are available within `examples/`.
+
+### Examples
+#### Usage of built-in models & methods
 ```js
 const HFDB = require('bfx-hf-models')
 const HFDBLowDBAdapter = require('bfx-hf-models-adapter-lowdb')
@@ -51,7 +95,7 @@ const credential = await Credential.create({
 //  etc...
 ```
 
-### Example usage of bitfinex model methods
+#### Usage of bitfinex model methods
 As above, but with the bitfinex plugin the `Candle` and `Trade` models will gain a `syncRange()` method which populates the local DB with data from the exchange API.
 
 ```js
@@ -96,3 +140,11 @@ const bitfinexCandles = await Candle.getInRange([
 
 // etc...
 ```
+
+### Contributing
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create a new Pull Request
