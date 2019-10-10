@@ -57,9 +57,9 @@ const db = new HFDB({
 
 ### Docs
 
-Refer to `docs/models.md` for an overview of the available models and their schema, and `docs/methods.md` for a list of methods available for both map & collection models.
+[Refer to `docs/models.md`](/docs/models.md) for an overview of the available models and their schema, [and `docs/methods.md`](/docs/methods.md) for a list of methods available for both map & collection models.
 
-Executable examples are available within `examples/`.
+Executable examples are available [within `examples/`](/examples).
 
 ### Examples
 #### Usage of built-in models & methods
