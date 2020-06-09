@@ -2,13 +2,15 @@
 
 [![Build Status](https://travis-ci.org/bitfinexcom/bfx-hf-models.svg?branch=master)](https://travis-ci.org/bitfinexcom/bfx-hf-models)
 
-This repo implements a backend-agnostic database system for the Bitfinex Honey Framework. It is used by all HF repos for data storage, i.e:
+This repo implements a backend-agnostic database system for the Bitfinex Honey
+Framework. It is used by all HF repos for data storage, i.e:
 
 * `bfx-hf-data-server`
 * `bfx-hf-algo-server`
 * `bfx-hf-server`
 
-Both the DB backend and exchange-specific schema methods can be configured upon initialization. There are currently two official exchange adapters:
+Both the DB backend and exchange-specific schema methods can be configured upon
+initialization. There are currently two official exchange adapters:
 
 * `bfx-hf-ext-plugin-bitfinex` - implements Bitfinex-specific model methods
 * `bfx-hf-ext-plugin-dummy` - provides the base set of DB methods
@@ -24,6 +26,7 @@ Besides these, two DB backends are available:
 * Exchange-agnostic; exchange-specific sync logic is provided via a plugin system
 
 #### Available Models
+
 * AlgoOrder
 * Backtest
 * Candle
@@ -57,12 +60,13 @@ const db = new HFDB({
 
 ### Docs
 
-[Refer to `docs/models.md`](/docs/models.md) for an overview of the available models and their schema, [and `docs/methods.md`](/docs/methods.md) for a list of methods available for both map & collection models.
-
-Executable examples are available [within `examples/`](/examples).
+API documentation can be found in [`docs/reference.md`](docs/reference.md), and
+examples in the [`examples`](examples) folder.
 
 ### Examples
+
 #### Usage of built-in models & methods
+
 ```js
 const HFDB = require('bfx-hf-models')
 const HFDBLowDBAdapter = require('bfx-hf-models-adapter-lowdb')
@@ -96,7 +100,10 @@ const credential = await Credential.create({
 ```
 
 #### Usage of bitfinex model methods
-As above, but with the bitfinex plugin the `Candle` and `Trade` models will gain a `syncRange()` method which populates the local DB with data from the exchange API.
+
+As above, but with the bitfinex plugin the `Candle` and `Trade` models will
+gain a `syncRange()` method which populates the local DB with data from the
+exchange API.
 
 ```js
 const HFDB = require('bfx-hf-models')
