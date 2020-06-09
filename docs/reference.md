@@ -76,6 +76,12 @@ application.</p>
 ## Typedefs
 
 <dl>
+<dt><a href="#DBAdapterCollectionMethods">DBAdapterCollectionMethods</a> : <code>object</code></dt>
+<dd><p>A set of functions providing functionality for operating on <strong>Collection</strong>
+models (records identified by index in an array). Additional methods may be
+provided and will be made available on any <strong>Collection</strong> models, but those
+listed here are required for a valid database adapter.</p>
+</dd>
 <dt><a href="#DBAdapterCriteria">DBAdapterCriteria</a> : <code>Array</code></dt>
 <dd><p>An array containing 3 values; a field name, condition, and target value. For
 example:</p>
@@ -159,28 +165,6 @@ const db = new HFDB({
 
 // db is now ready to be used; see examples below
 ```
-<a name="module_bfx-hf-models.DBAdapterCollectionMethods"></a>
-
-### bfx-hf-models.DBAdapterCollectionMethods : <code>object</code>
-A set of functions providing functionality for operating on **Collection**
-models (records identified by index in an array). Additional methods may be
-provided and will be made available on any **Collection** models, but those
-listed here are required for a valid
-[bfx-hf-models](#module_bfx-hf-models) database adapter.
-
-**Kind**: static typedef of [<code>bfx-hf-models</code>](#module_bfx-hf-models)  
-**Properties**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| find | <code>module:bfx-hf-models.DBAdapterCollectionMethods~find</code> | record query function, returning an array of matches |
-| rmAll | <code>module:bfx-hf-models.DBAdapterCollectionMethods~rmAll</code> | mass record delete function |
-| getAll | <code>module:bfx-hf-models.DBAdapterCollectionMethods~getAll</code> | mass record query function; same as `find` but with no criteria |
-| update | <code>module:bfx-hf-models.DBAdapterCollectionMethods~update</code> | record update function accepting an array of criteria; may update multiple   records at once |
-| insert | <code>module:bfx-hf-models.DBAdapterCollectionMethods~insert</code> | record creation method |
-| getInRange | <code>module:bfx-hf-models.DBAdapterCollectionMethods~getInRange</code> | high-level method to query records by criteria and a range of possible key   values, with optional sorting of results. |
-| bulkInsert | <code>module:bfx-hf-models.DBAdapterCollectionMethods~bulkInsert</code> | similar to   [insert](module:bfx-hf-models.DBAdapterCollectionMethods~insert), but   meant for multiple records and intended to run as one database transaction   (should be more performant than individual `insert` calls, but   implementation is up to the adapter) |
-
 <a name="HFDB"></a>
 
 ## HFDB
@@ -300,6 +284,144 @@ application.
 
 **Kind**: global constant  
 **Read only**: true  
+<a name="DBAdapterCollectionMethods"></a>
+
+## DBAdapterCollectionMethods : <code>object</code>
+A set of functions providing functionality for operating on **Collection**
+models (records identified by index in an array). Additional methods may be
+provided and will be made available on any **Collection** models, but those
+listed here are required for a valid database adapter.
+
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| find | [<code>find</code>](#DBAdapterCollectionMethods..find) | record query function, returning an array of matches |
+| rmAll | [<code>rmAll</code>](#DBAdapterCollectionMethods..rmAll) | mass record delete function |
+| getAll | [<code>getAll</code>](#DBAdapterCollectionMethods..getAll) | mass record query function; same as `find` but with no criteria |
+| update | [<code>update</code>](#DBAdapterCollectionMethods..update) | record update function accepting an array of criteria; may update multiple   records at once |
+| insert | [<code>insert</code>](#DBAdapterCollectionMethods..insert) | record creation method |
+| getInRange | [<code>getInRange</code>](#DBAdapterCollectionMethods..getInRange) | high-level method to query records by criteria and a range of possible key   values, with optional sorting of results. |
+| bulkInsert | [<code>bulkInsert</code>](#DBAdapterCollectionMethods..bulkInsert) | similar to [insert](#DBAdapterCollectionMethods..insert), but meant for   multiple records and intended to run as one database transaction (should   be more performant than individual `insert` calls, but implementation is   up to the adapter) |
+
+
+* [DBAdapterCollectionMethods](#DBAdapterCollectionMethods) : <code>object</code>
+    * [~bulkInsert](#DBAdapterCollectionMethods..bulkInsert) ⇒ <code>Array.&lt;object&gt;</code>
+    * [~find](#DBAdapterCollectionMethods..find) ⇒ <code>Array.&lt;object&gt;</code>
+    * [~getAll](#DBAdapterCollectionMethods..getAll) ⇒ <code>Array.&lt;object&gt;</code>
+    * [~getInRange](#DBAdapterCollectionMethods..getInRange) ⇒ <code>Array.&lt;object&gt;</code>
+    * [~insert](#DBAdapterCollectionMethods..insert) ⇒ <code>object</code>
+    * [~rmAll](#DBAdapterCollectionMethods..rmAll) ⇒ <code>number</code>
+    * [~update](#DBAdapterCollectionMethods..update) ⇒ <code>number</code>
+
+<a name="DBAdapterCollectionMethods..bulkInsert"></a>
+
+### DBAdapterCollectionMethods~bulkInsert ⇒ <code>Array.&lt;object&gt;</code>
+Function that inserts an array of records at once into the database. Meant
+for large inserts, should be optimized within the respective adapter.
+
+**Kind**: inner typedef of [<code>DBAdapterCollectionMethods</code>](#DBAdapterCollectionMethods)  
+**Returns**: <code>Array.&lt;object&gt;</code> - insertedRecords  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| db | <code>object</code> | database object as provided by adapter |
+| model | [<code>Model</code>](#Model) | initialized model instance |
+| records | <code>Array.&lt;object&gt;</code> | records to insert |
+
+<a name="DBAdapterCollectionMethods..find"></a>
+
+### DBAdapterCollectionMethods~find ⇒ <code>Array.&lt;object&gt;</code>
+Function returning all records matching the provided criteria.
+
+**Kind**: inner typedef of [<code>DBAdapterCollectionMethods</code>](#DBAdapterCollectionMethods)  
+**Returns**: <code>Array.&lt;object&gt;</code> - records - matching records  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| db | <code>object</code> | database object as provided by adapter |
+| model | [<code>Model</code>](#Model) | initialized model instance |
+| criteria | [<code>Array.&lt;DBAdapterCriteria&gt;</code>](#DBAdapterCriteria) | array of   criteria which must be met for a record to be included in the results |
+
+<a name="DBAdapterCollectionMethods..getAll"></a>
+
+### DBAdapterCollectionMethods~getAll ⇒ <code>Array.&lt;object&gt;</code>
+Function that returns all records in the collection.
+
+**Kind**: inner typedef of [<code>DBAdapterCollectionMethods</code>](#DBAdapterCollectionMethods)  
+**Returns**: <code>Array.&lt;object&gt;</code> - records - all records in the collection  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| db | <code>object</code> | database object as provided by adapter |
+| model | [<code>Model</code>](#Model) | initialized model instance |
+
+<a name="DBAdapterCollectionMethods..getInRange"></a>
+
+### DBAdapterCollectionMethods~getInRange ⇒ <code>Array.&lt;object&gt;</code>
+Function that returns all records matching the provided criteria, and having
+a key with a value in the provided start/end range (numeric).
+
+**Kind**: inner typedef of [<code>DBAdapterCollectionMethods</code>](#DBAdapterCollectionMethods)  
+**Returns**: <code>Array.&lt;object&gt;</code> - records - matching records  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| db | <code>object</code> | database object as provided by adapter |
+| model | [<code>Model</code>](#Model) | initialized model instance |
+| criteria | [<code>Array.&lt;DBAdapterCriteria&gt;</code>](#DBAdapterCriteria) | array of   criteria to be met for a record to be matched, prior to range check |
+| range | <code>object</code> | range definition |
+| range.key | <code>string</code> | key name on records to be checked against   start/end limits |
+| range.start | <code>number</code> | minimum value for `range.key` |
+| range.end | <code>number</code> | maximum value for `range.key` |
+| [sort] | <code>object</code> | sort parameters |
+| [sort.orderBy] | <code>string</code> | key to sort results by |
+| [sort.orderDirection] | <code>string</code> | `'desc'` for descending results,   otherwise ascending. |
+
+<a name="DBAdapterCollectionMethods..insert"></a>
+
+### DBAdapterCollectionMethods~insert ⇒ <code>object</code>
+Function that adds a new record to the collection.
+
+**Kind**: inner typedef of [<code>DBAdapterCollectionMethods</code>](#DBAdapterCollectionMethods)  
+**Returns**: <code>object</code> - record - inserted record data  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| db | <code>object</code> | database object as provided by adapter |
+| model | [<code>Model</code>](#Model) | initialized model instance |
+| record | <code>object</code> | record to be inserted |
+
+<a name="DBAdapterCollectionMethods..rmAll"></a>
+
+### DBAdapterCollectionMethods~rmAll ⇒ <code>number</code>
+Function that removes all records from the collection.
+
+**Kind**: inner typedef of [<code>DBAdapterCollectionMethods</code>](#DBAdapterCollectionMethods)  
+**Returns**: <code>number</code> - nRemoved - number of removed records  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| db | <code>object</code> | database object as provided by adapter |
+| model | [<code>Model</code>](#Model) | initialized model instance |
+
+<a name="DBAdapterCollectionMethods..update"></a>
+
+### DBAdapterCollectionMethods~update ⇒ <code>number</code>
+Function that updates all records matching the criteria with the provided
+data.
+
+**Kind**: inner typedef of [<code>DBAdapterCollectionMethods</code>](#DBAdapterCollectionMethods)  
+**Returns**: <code>number</code> - nModified - number of modified records  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| db | <code>object</code> | database object as provided by adapter |
+| model | [<code>Model</code>](#Model) | initialized model instance |
+| criteria | [<code>Array.&lt;DBAdapterCriteria&gt;</code>](#DBAdapterCriteria) | array of   criteria to be met for a record to be updated |
+| data | <code>object</code> | data to saved on matching records; partial update |
+
 <a name="DBAdapterCriteria"></a>
 
 ## DBAdapterCriteria : <code>Array</code>
@@ -493,7 +615,7 @@ accept either the unique ID (key value) of the model to be updated, or the
 model itself (containing the ID).
 
 Must perform a full update. To create a record if it does not exist (or
-update), use [module:bfx-hf-models.DBAdapterMapMethods~set](module:bfx-hf-models.DBAdapterMapMethods~set)
+update), use [set](#DBAdapterMapMethods..set)
 
 **Kind**: inner typedef of [<code>DBAdapterMapMethods</code>](#DBAdapterMapMethods)  
 **Returns**: <code>number</code> - nUpdatedRows - number of updated rows  
@@ -538,7 +660,7 @@ key, and a **Collection** model is a set of records stored as an array
 | [dbInit] | <code>function</code> | if provided, this function is called to   and expected to provide the `db` object, overriding any provided on this   adapter. It is called with each model instance, post-initialization, and   then passed to the model for all DB-related methods. |
 | [close] | <code>function</code> | if provided, this function is called when the   adapter is closed. Use this to clean up the database connection and flush   any unsaved changes. |
 | mapMethods | [<code>DBAdapterMapMethods</code>](#DBAdapterMapMethods) | object of methods for operating on **Map** models (collections of records identified by unique key) |
-| collectionMethods | <code>DBAdapterCollectionMethods</code> | object of methods   for operating on **Collection** models (identified by index) |
+| collectionMethods | [<code>DBAdapterCollectionMethods</code>](#DBAdapterCollectionMethods) | object of methods   for operating on **Collection** models (identified by index) |
 | genericMethods | [<code>DBAdapterGenericMethods</code>](#DBAdapterGenericMethods) | object of methods   shared by all model types. i.e. raw database query support. |
 
 <a name="Model"></a>
