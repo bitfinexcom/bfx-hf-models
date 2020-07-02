@@ -1,3 +1,9 @@
+# 3.0.0
+- feature: add bgStrategyExec flag to UserSettings
+- feature: add StrategyExecution model
+- refactor: update Strategy model contents to match `bfx-hf-strategy` v2
+  requirements
+
 # 2.1.4
 - feature: UserSettings model
 
