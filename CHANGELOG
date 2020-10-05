@@ -1,3 +1,8 @@
+# 2.1.5
+- feature: remove custom HF chart
+- feature: add GA
+- feature: remove theme
+
 # 2.1.4
 - feature: UserSettings model
 
