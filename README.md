@@ -76,7 +76,7 @@ const db = new HFDB({
 
 // All default models are available, but will lack exchange specific methods (i.e Candle.sync_range())
 const {
-  AlgoOrder, Backtest, Candle, Credential, Market, Strategy, Trade
+  AlgoOrder, Backtest, Candle, Credential, Strategy, Trade
 } = db
 
 const allCandles = await Candle.getAll()
