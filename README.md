@@ -28,7 +28,6 @@ Besides these, two DB backends are available:
 * Backtest
 * Candle
 * Credential
-* Market
 * Strategy
 * Trade
 
