@@ -33,8 +33,8 @@
     "lodash": "^4.17.10"
   },
   "devDependencies": {
-    "bfx-hf-ext-plugin-bitfinex": "github:bitfinexcom/bfx-hf-ext-plugin-bitfinex#v1.0.8",
-    "bfx-hf-models-adapter-lowdb": "github:bitfinexcom/bfx-hf-models-adapter-lowdb#v1.0.3",
+    "bfx-hf-ext-plugin-bitfinex": "github:bitfinexcom/bfx-hf-ext-plugin-bitfinex#v1.0.9",
+    "bfx-hf-models-adapter-lowdb": "github:bitfinexcom/bfx-hf-models-adapter-lowdb#v1.0.4",
     "debug": "^4.3.1",
     "dotenv": "^6.0.0",
     "mocha": "^6.2.0",
