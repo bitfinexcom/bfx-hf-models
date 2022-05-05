@@ -17,71 +17,71 @@ const dbPath = path.join(__dirname, 'fixtures')
 const strategyExecutionResults = [{
   id: '1',
   label: 'first strategy',
-  symbol: "tMATIC:USD",
+  symbol: 'tMATIC:USD',
   strategyId: '2789ea58-e8a4-417d-b7db-a8d4342faf7d',
   strategyOpts: {
-    "id": "2789ea58-e8a4-417d-b7db-a8d4342faf7d",
-    "label": "first strategy",
-    "symbol": "tMATIC:USD",
-    "tf": "1m",
-    "includeTrades": false,
-    "seedCandleCount": 150,
-    "margin": false
+    id: '2789ea58-e8a4-417d-b7db-a8d4342faf7d',
+    label: 'first strategy',
+    symbol: 'tMATIC:USD',
+    tf: '1m',
+    includeTrades: false,
+    seedCandleCount: 150,
+    margin: false
   },
-  "startedOn": 1650953562507,
-  "stoppedOn": 1650953569338,
-  "results": {
-    "vol": 0,
-    "fees": 0,
-    "nTrades": 0,
-    "nCandles": 52,
-    "nStrategyTrades": 0,
-    "nOpens": 0,
-    "nGains": 0,
-    "nLosses": 0,
-    "stdDeviation": 0,
-    "pl": 0,
-    "pf": 0,
-    "avgPL": 0,
-    "minPL": 0,
-    "maxPL": 0,
-    "strategy": {
-      "trades": []
+  startedOn: 1650953562507,
+  stoppedOn: 1650953569338,
+  results: {
+    vol: 0,
+    fees: 0,
+    nTrades: 0,
+    nCandles: 52,
+    nStrategyTrades: 0,
+    nOpens: 0,
+    nGains: 0,
+    nLosses: 0,
+    stdDeviation: 0,
+    pl: 0,
+    pf: 0,
+    avgPL: 0,
+    minPL: 0,
+    maxPL: 0,
+    strategy: {
+      trades: []
     }
   }
 }, {
   id: '2',
   label: 'second strategy',
-  symbol: "tETHUSD",
+  symbol: 'tETHUSD',
   strategyId: '2789ea58-e8a4-417d-b7db-a8d4342faf7d',
   strategyOpts: {
-    "id": "2789ea58-e8a4-417d-b7db-a8d4342faf7d",
-    "label": "second strategy",
-    "symbol": "tETHUSD",
-    "tf": "1m",
-    "includeTrades": false,
-    "seedCandleCount": 150,
-    "margin": false
+    id: '2789ea58-e8a4-417d-b7db-a8d4342faf7d',
+    label: 'second strategy',
+    symbol: 'tETHUSD',
+    tf: '1m',
+    includeTrades: false,
+    seedCandleCount: 150,
+    margin: false
   },
-  "startedOn": 1650953583457, 
-  "stoppedOn": 1650953596912,
-  "results": {
-    "vol": 0,
-    "fees": 0,
-    "nTrades": 0,
-    "nCandles": 52,
-    "nStrategyTrades": 0,
-    "nOpens": 0,
-    "nGains": 0,
-    "nLosses": 0,
-    "stdDeviation": 0,
-    "pl": 0,
-    "pf": 0,
-    "avgPL": 0,
-    "minPL": 0,
-    "maxPL": 0,
-    "strategy": {
-      "trades": []
+  startedOn: 1650953583457,
+  stoppedOn: 1650953596912,
+  results: {
+    vol: 0,
+    fees: 0,
+    nTrades: 0,
+    nCandles: 52,
+    nStrategyTrades: 0,
+    nOpens: 0,
+    nGains: 0,
+    nLosses: 0,
+    stdDeviation: 0,
+    pl: 0,
+    pf: 0,
+    avgPL: 0,
+    minPL: 0,
+    maxPL: 0,
+    strategy: {
+      trades: []
     }
   }
 }]
