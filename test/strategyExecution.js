@@ -16,12 +16,12 @@ const dbPath = path.join(__dirname, 'fixtures')
 
 const strategyExecutionResults = [{
   id: '1',
-  name: 'first strategy',
+  label: 'first strategy',
   symbol: "tMATIC:USD",
   strategyId: '2789ea58-e8a4-417d-b7db-a8d4342faf7d',
   strategyOpts: {
     "id": "2789ea58-e8a4-417d-b7db-a8d4342faf7d",
-    "name": "first strategy",
+    "label": "first strategy",
     "symbol": "tMATIC:USD",
     "tf": "1m",
     "includeTrades": false,
@@ -51,12 +51,12 @@ const strategyExecutionResults = [{
   }
 }, {
   id: '2',
-  name: 'first strategy',
+  label: 'second strategy',
   symbol: "tETHUSD",
   strategyId: '2789ea58-e8a4-417d-b7db-a8d4342faf7d',
   strategyOpts: {
     "id": "2789ea58-e8a4-417d-b7db-a8d4342faf7d",
-    "name": "first strategy",
+    "label": "second strategy",
     "symbol": "tETHUSD",
     "tf": "1m",
     "includeTrades": false,
