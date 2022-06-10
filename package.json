@@ -1,6 +1,6 @@
 {
   "name": "bfx-hf-models",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "description": "HF DB models",
   "main": "index.js",
   "directories": {
