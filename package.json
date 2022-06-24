@@ -1,6 +1,6 @@
 {
   "name": "bfx-hf-models",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "HF DB models",
   "main": "index.js",
   "directories": {
@@ -29,11 +29,11 @@
     "BTC"
   ],
   "dependencies": {
-    "bfx-hf-util": "github:bitfinexcom/bfx-hf-util#v1.0.12",
+    "bfx-hf-util": "git+https://github.com/bitfinexcom/bfx-hf-util.git#v1.0.12",
     "lodash": "^4.17.10"
   },
   "devDependencies": {
-    "bfx-hf-ext-plugin-bitfinex": "github:bitfinexcom/bfx-hf-ext-plugin-bitfinex#v1.0.11",
+    "bfx-hf-ext-plugin-bitfinex": "git+https://github.com/bitfinexcom/bfx-hf-ext-plugin-bitfinex.git#v1.0.11",
     "bfx-hf-models-adapter-lowdb": "git+https://github.com/bitfinexcom/bfx-hf-models-adapter-lowdb.git#v1.0.5",
     "debug": "^4.3.1",
     "dotenv": "^6.0.0",
